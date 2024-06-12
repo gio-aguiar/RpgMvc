@@ -7,6 +7,11 @@
 @Html.ActionLink("Criar Novo Personagem", "Create")
 </p>
 <table class="table">
+@Html.ActionLink("Clique aqui para um embate com armas!", "Index", "Disputas", null, new {@class = "btn btn-warning"})
+@Html.ActionLink("Clique aqui para um embate de habilidade!!", "IndexHabilidades", "Disputas", null, new {@class = "btn btn-warning"})
+@Html.ActionLink("Clique aqui para um embate em grupo", "Disputa Geral", "Disputas", null, new {@class = "btn btn-danger"})
+@Html.ActionLink("Zerar o ranking e restaurar vida", "ZerarRankingRestaurarVidas", "Personagens", null, new {@class = "btn btn-secondary", onclick = "return confir('Deseja realmente realizar esta ação?');" })
+
 <tr><!--Títulos das colunas da tabela-->
 <th>@Html.DisplayNameFor(model => model.Id)</th>
 <th>@Html.DisplayNameFor(model => model.Nome)</th>
@@ -31,6 +36,7 @@
 <td><!--Coluna para Links/botões-->
 @Html.ActionLink("Editar", "Edit", new { id = item.Id } ) |
 @Html.ActionLink("Detalhes", "Details", new { id = item.Id }) |
+@Html.ActionLink("Listar Habilidades", "Index", "PersonagemHabilidade", new { id = item.Id }) |
 @Html.ActionLink("Deletar", "Delete", new { id = item.Id },
  new {onclick = "return confirm('Deseja realmente deletar esse personagem?');"}))
 </td>
